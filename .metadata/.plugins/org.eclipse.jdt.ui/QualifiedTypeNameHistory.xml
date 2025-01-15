@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="com.example.demo.entities.Etudiant"/>
+    <fullyQualifiedTypeName name="com.example.demo.service.IMemberService"/>
+    <fullyQualifiedTypeName name="org.hibernate.metamodel.internal.MemberResolver"/>
+    <fullyQualifiedTypeName name="com.example.demo.repository.EtudiantRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.repository.EnseignantChercheurRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.entities.EnseignantChercheur"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.example.demo.service.IPublicationService"/>
+    <fullyQualifiedTypeName name="com.example.demo.repository.PublicationRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.service.PublicationImpl"/>
+    <fullyQualifiedTypeName name="com.example.demo.PublicationService"/>
+    <fullyQualifiedTypeName name="com.example.demo.entities.Publication"/>
+    <fullyQualifiedTypeName name="org.springframework.data.rest.core.annotation.RestResource"/>
+</qualifiedTypeNameHistroy>

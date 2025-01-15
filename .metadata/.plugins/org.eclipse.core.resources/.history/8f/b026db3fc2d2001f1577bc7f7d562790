@@ -1,0 +1,124 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.hibernate.metamodel.internal.MemberResolver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.EnseignantChercheur;
+import com.example.demo.entities.Etudiant;
+import com.example.demo.entities.Member;
+import com.example.demo.entities.Membre_Pub_Id;
+import com.example.demo.entities.Membre_Publication;
+import com.example.demo.repository.EnseignantChercheurRepository;
+import com.example.demo.repository.EtudiantRepository;
+import com.example.demo.repository.MemberRepository;
+import com.example.demo.repository.MembrePubRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service 
+@AllArgsConstructor
+public class MemberImpl implements IMemberService {
+	@Autowired
+	MemberRepository membreRepository;
+	@Autowired
+	EnseignantChercheurRepository enseignantChercheurRepository;
+	@Autowired
+	EtudiantRepository etudiantRepository;
+	 @Autowired
+	 private MembrePubRepository membrePubRepository;
+
+	@Override
+	public Member addMember(Member m) {
+		membreRepository.save(m);
+		return null;
+	}
+
+	@Override
+	public void deleteMember(Long id) {
+		membreRepository.deleteById(id );
+		
+	}
+
+	@Override
+	public Member updateMember(Member m) {
+		return membreRepository.saveAndFlush(m);
+	}
+
+	@Override
+	public Member findMember(Long id) {
+		Member m= (Member)membreRepository.findById(id).get();
+		return m;
+	}
+
+	@Override
+	public List<Member> findAll() {
+		return membreRepository.findAll();
+	}
+
+	@Override
+	public Member findByCin(String cin) {
+		return membreRepository.findByCin(cin);
+	}
+
+	@Override
+	public Member findByEmail(String email) {
+		return membreRepository.findByEmail(email);
+		
+	}
+
+	@Override
+	public List<Member> findByNom(String nom) {
+		return membreRepository.findByNom(nom);
+	}
+
+	@Override
+	public List<Etudiant> findByDiplome(String diplome) {
+		return etudiantRepository.findByDiplome(diplome);
+		
+	}
+
+	@Override
+	public List<EnseignantChercheur> findByGrade(String grade) {
+		return enseignantChercheurRepository.findByGrade(grade);
+		
+	}
+
+	@Override
+	public List<EnseignantChercheur> findByEtablissement(String etablissement) {
+		
+		return enseignantChercheurRepository.findByEtablissement(etablissement);
+	}
+	
+	@Override
+	public void affecterEtudiantToEnseignant(Long idetd, Long idens) {
+    	Etudiant etd = etudiantRepository.findById(idetd).get();
+    	EnseignantChercheur ens = enseignantChercheurRepository.findById(idens).get();
+    	
+    	etd.setEncadrant(ens);
+    	etudiantRepository.save(etd);
+    	
+    }
+	@Override
+	public List<Etudiant> findEtudiantByEnseignant (EnseignantChercheur ens){
+		return etudiantRepository.findByEncadrant(ens);
+	}
+	
+	@Override
+	public void affecterAuteurToPublication(Long idAuteur, Long idPub) {
+	    // Trouver le membre correspondant à l'identifiant donné
+	    Member membre = memberRepository.findById(idAuteur).orElseThrow(() -> new IllegalArgumentException("Auteur introuvable avec l'identifiant : " + idAuteur));
+	    
+	    // Créer une nouvelle association entre le membre et la publication
+	    Membre_Publication membrePublication = new Membre_Publication();
+	    membrePublication.setAuteur(membre);
+	    membrePublication.setId(new Membre_Pub_Id(idPub, idAuteur));
+	    
+	    // Sauvegarder l'association dans la base de données
+	    membrePubRepository.save(membrePublication);
+	}
+	
+
+}

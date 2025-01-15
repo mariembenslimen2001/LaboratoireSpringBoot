@@ -1,0 +1,75 @@
+package com.example.demo.service;
+
+
+
+import java.util.List;
+import com.example.demo.entities.Etudiant;
+import com.example.demo.entities.EnseignantChercheur;
+import com.example.demo.entities.Member;
+import com.example.demo.entities.Membre_Pub_Id;
+import com.example.demo.entities.Membre_Publication;
+import com.example.demo.repository.MemberRepository;
+import com.example.demo.repository.MembrePubRepository;
+
+public interface IMemberService {
+	
+	
+    
+    // **CRUD sur les membres**
+    
+    // Ajouter un membre
+    Member addMember(Member m);
+
+    // Supprimer un membre par ID
+    void deleteMember(Long id);
+
+    // Mettre à jour un membre
+    Member updateMember(Member p);
+
+    // Trouver un membre par ID
+    Member findMember(Long id);
+
+    // Récupérer tous les membres
+    List<Member> findAll();
+
+    // **Filtrage par propriété**
+    
+    // Trouver un membre par CIN
+    Member findByCin(String cin);
+
+    // Trouver un membre par email
+    Member findByEmail(String email);
+    
+    
+
+    // Trouver des membres par nom
+    List<Member> findByNom(String nom);
+
+    // **Recherche spécifique aux étudiants**
+    
+    // Trouver des étudiants par diplôme
+    List<Etudiant> findByDiplome(String diplome);
+
+    // **Recherche spécifique aux enseignants**
+
+    // Trouver des enseignants par grade
+    List<EnseignantChercheur> findByGrade(String grade);
+
+    // Trouver des enseignants par établissement
+    List<EnseignantChercheur> findByEtablissement(String etablissement);
+
+    // **Autres fonctionnalités**
+    // Ajoutez d'autres méthodes spécifiques si nécessaire
+    
+    List<Etudiant> findEtudiantByEnseignant (EnseignantChercheur ens);
+
+	void affecterEtudiantToEnseignant(Long idetd, Long idens);
+	
+	void affecterauteurTopublication(Long idAuteur, Long idPub);
+	
+	
+
+    
+    
+    }
+
