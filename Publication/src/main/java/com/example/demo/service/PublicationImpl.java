@@ -64,5 +64,7 @@ public class PublicationImpl implements IPublicationService {
 	    public List<Publication> findByDateBetween(Date date1, Date date2) {
 	        return publicationRepository.findByDateBetween(date1, date2);
 	    }
+	    
+	    
 
 }

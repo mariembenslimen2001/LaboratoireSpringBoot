@@ -17,6 +17,8 @@ public class Outil {
     private Long id;
 
     private String source;
+    @NonNull
+    private String nom;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;

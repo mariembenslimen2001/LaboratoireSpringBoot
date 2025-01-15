@@ -9,7 +9,11 @@ import com.example.demo.entities.Outil;
 
 public interface OutilRepository extends JpaRepository <Outil, Long> {
 	
-    List<Outil> findBySource(String source); 
-    List<Outil> findByDate(Date date);
+	List<Outil> findByNom(String nom);
+
+    // Find an Outil by its source
+    Outil findBySource(String source);
+   
+	public List<Outil> findBySourceStartingWith(String source);
 
 }

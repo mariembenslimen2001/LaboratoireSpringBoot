@@ -28,8 +28,18 @@ public class Evenement implements Serializable {
     private String titre;
     
     @NonNull @Temporal(TemporalType.DATE)
-    private Date date;
+    private Date dateDebut;
+
+    @NonNull @Temporal(TemporalType.DATE)
+    private Date dateFin;
     
     @NonNull
     private String lieu;
+    
+    public Evenement(String titre, Date dateDebut, Date dateFin, String lieu) {
+        this.titre = titre;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.lieu = lieu;
+    }
 }
