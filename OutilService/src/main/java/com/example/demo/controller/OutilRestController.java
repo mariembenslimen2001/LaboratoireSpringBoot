@@ -8,6 +8,7 @@ import com.example.demo.entities.Outil;
 import com.example.demo.service.IOutilService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class OutilRestController {
 
 	@Autowired
