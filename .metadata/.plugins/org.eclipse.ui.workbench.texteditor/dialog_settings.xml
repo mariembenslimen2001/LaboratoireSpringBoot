@@ -3,6 +3,12 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="affecterAuteurToPublication"/>
+		<item value="affecterauteurTopublication"/>
+		<item value="affectEtudiantTo"/>
+		<item value="affectEtudiantToEncadrant"/>
+		<item value="proxy"/>
+		<item value="outil"/>
 		<item value="build"/>
 		<item value="findbyid"/>
 		<item value="config"/>
@@ -12,20 +18,20 @@
 		<item value="Membre"/>
 		<item value="groupid"/>
 		<item value="Evenement"/>
-		<item value="save"/>
 	</list>
 	<list key="replacehistory">
 		<item value="Member"/>
 		<item value="Publication"/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="// outil user"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="// outil user"/>
 			<item value="fetch"/>
 		</list>
 		<list key="replacehistory">
